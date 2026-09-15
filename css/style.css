@@ -324,27 +324,28 @@ img {
 
 .home-page-navigation .nav-links a {
     color: #e6eaf0;
-    opacity: 85%;
     text-decoration: none;
     padding: 0.5em;
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .home-page-navigation .logo-link a {
     color: #ffffff;
-    opacity: 95%;
     text-decoration: none;
     padding: 0.5em;
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .home-page-navigation a:hover {
     color: #ffffff;
     opacity: 1;
+    transform: scale(1.03);
 }
 
 .site-main {
@@ -398,7 +399,6 @@ img {
         text-align: right;
         margin: 0;
         padding: 0;
-        opacity: 0.95;
         color: #e6eaf0;
 
     }
@@ -467,6 +467,7 @@ section {
 .image-container img {
     width: 100%;
     height: 100%;
+    border-radius: 15px;
 }
 
 .image-container .img-hover {
@@ -477,12 +478,13 @@ section {
     left: 0;
     opacity: 0;
     box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.025);
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .image-container:hover .img-hover {
     position: absolute;
     box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.1);
+    transform: scale(1.03);
     opacity: 1;
 }
 
@@ -564,12 +566,17 @@ section {
     display: block;
     color: rgba(255, 255, 255, 0.9);
     font-weight: 200;
+    transition: transform 0.3s ease;
 }
 
 .site-footer .site-navigation a:hover,
 .site-footer .site-navigation a.selected {
     color: rgba(255, 255, 255);
     font-weight: 200;
+}
+
+.site-footer .site-navigation a:hover {
+    transform: scale(1.03);
 }
 
 /* SUB PAGE STYLING */
@@ -634,27 +641,27 @@ section {
 
 .sub-page-navigation .nav-links a {
     color: #343845;
-    opacity: 85%;
     text-decoration: none;
     padding: 0.5em;
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .sub-page-navigation .logo-link a {
     color: #343845;
-    opacity: 95%;
     text-decoration: none;
     padding: 0.5em;
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .sub-page-navigation a:hover {
-    color: #343845;
-    opacity: 1;
+    color: #292c37;
+    transform: scale(1.03);
 }
 
 .about-container {
@@ -1112,4 +1119,117 @@ section {
 
 .other-projects a:hover img {
     filter: brightness(1.1);
+}
+
+/* ANIMATION */
+
+.fade-in {
+    --delay: 0s;
+
+    animation-name: fadeIn;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-delay: var(--delay);
+    animation-timing-function: ease-out;
+
+    opacity: 0;
+
+}
+
+@keyframes fadeIn {
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in-from-top {
+
+    --delay: 0s;
+
+    animation-name: fadeInFromTop;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: var(--delay);
+    animation-timing-function: ease-out;
+
+    opacity: 0;
+    translate: 0 -20px;
+
+}
+
+@keyframes fadeInFromTop {
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+.fade-in-from-left {
+
+    --delay: 0s;
+
+    animation-name: fadeInFromLeft;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: var(--delay);
+    animation-timing-function: ease-out;
+
+    opacity: 0;
+    translate: -20px 0;
+
+}
+
+@keyframes fadeInFromLeft {
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+.fade-in-from-right {
+
+    --delay: 0s;
+
+    animation-name: fadeInFromRight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: var(--delay);
+    animation-timing-function: ease-out;
+
+    opacity: 0;
+    translate: 20px 0;
+
+}
+
+@keyframes fadeInFromRight {
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@view-transition {
+    navigation: auto;
+}
+
+header {
+    view-transition-name: site-header;
+}
+
+footer {
+    view-transition-name: site-footer;
 }
