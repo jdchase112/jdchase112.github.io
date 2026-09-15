@@ -468,6 +468,14 @@ section {
     width: 100%;
     height: 100%;
     border-radius: 15px;
+    -webkit-touch-callout: none;
+    /* Disables long-press menu on iOS Safari */
+    -webkit-user-select: none;
+    /* Disables text/image selection */
+    user-select: none;
+    /* Standard selection property */
+    -webkit-user-drag: none;
+    /* Prevents dragging on WebKit browsers */
 }
 
 .image-container .img-hover {
